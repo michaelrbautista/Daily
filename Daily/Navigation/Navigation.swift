@@ -104,9 +104,20 @@ class NavigationController: CoordinatorProtocol {
         case .RunDetailView(let viewModel, let date):
             RunDetailView(viewModel: viewModel, date: date)
             
+        // Program
+        case .ProgramWeekDetailView(let shouldUseSheetNavigation, let week):
+            ProgramWeekDetailView(shouldUseSheetNavigation: shouldUseSheetNavigation, week: week)
+        case .ProgramRunDetailView(let day, let week, let run):
+            ProgramRunDetailView(day: day, week: week, run: run)
+        case .CurrentProgramView(let program):
+            CurrentProgramView(program: program)
+            
         // Settings
         case .SettingsView:
             SettingsView()
+            
+        default:
+            Text("There was an error. Please try again later.")
         }
     }
     
@@ -118,8 +129,8 @@ class NavigationController: CoordinatorProtocol {
             Text("Share view")
         case .SavePhotoView:
             Text("Save photo")
-        case .AppleHealthAccess:
-            Text("Apple health access")
+        case .NewProgramCoordinatorView:
+            NewProgramCoordinatorView()
         }
     }
     
@@ -186,6 +197,14 @@ class SheetNavigationController: CoordinatorProtocol {
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
+        case .NewProgramView:
+            NewProgramView()
+        case .NewlyCreatedProgramView(let viewModel):
+            NewlyCreatedProgramView(viewModel: viewModel)
+        case .ProgramWeekDetailView(let shouldUseSheetNavigation, let week):
+            ProgramWeekDetailView(shouldUseSheetNavigation: shouldUseSheetNavigation, week: week)
+        case .ProgramRunDetailView(let day, let week, let run):
+            ProgramRunDetailView(day: day, week: week, run: run)
         default:
             Text("There was an error. Please try again later.")
         }

@@ -25,6 +25,9 @@ class UserViewModel: ObservableObject {
     @Published var restingHeartRate = 55.0
     @Published var maxHeartRate = 195.0
     
+    @Published var program: Program? = nil
+    @Published var startDate: Date? = nil
+    
     init() {
         self.isLoading = true
         
@@ -73,6 +76,27 @@ class UserViewModel: ObservableObject {
             // Check if user is subscribed
             self.isSubscribed = try await RevenueCatService.shared.checkSubscription()
             
+            #if DEBUG
+            self.isSubscribed = true
+            #endif
+            
+            // Check if user has started a program
+            self.startDate = UserDefaults.standard.value(forKey: "startDate") as? Date
+            
+            let experience = UserDefaults.standard.value(forKey: "experience") as? String
+            let goal = UserDefaults.standard.value(forKey: "goal") as? String
+            let longRunDay = UserDefaults.standard.value(forKey: "longRunDay") as? String
+            let mileTimeMinutes = UserDefaults.standard.value(forKey: "mileTimeMinutes") as? String
+            let mileTimeSeconds = UserDefaults.standard.value(forKey: "mileTimeSeconds") as? String
+            
+            if experience != nil && goal != nil && longRunDay != nil && mileTimeMinutes != nil && mileTimeSeconds != nil {
+                self.program = ProgramService.shared.getProgram(
+                    experience: experience!,
+                    goal: goal!,
+                    longRunDay: longRunDay!
+                )
+            }
+            
             self.isLoggedIn = true
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -90,6 +114,14 @@ class UserViewModel: ObservableObject {
 //            self.isLoggedIn = false
 //            self.isLoading = false
         }
+    }
+    
+    // MARK: Finish program
+    @MainActor
+    public func finishProgram() {
+        UserDefaults.standard.removeObject(forKey: "startDate")
+        self.program = nil
+        self.startDate = nil
     }
 }
 

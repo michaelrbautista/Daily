@@ -17,6 +17,7 @@ final class OnboardingViewModel: ObservableObject {
     @Published var longRunDay = ""
     @Published var mileTimeMinutes = ""
     @Published var mileTimeSeconds = ""
+    @Published var startDate = Calendar.current.nextDate(after: Date(), matching: DateComponents(weekday: 2), matchingPolicy: .nextTime) ?? Date()
     
     @Published var email = ""
     @Published var fullName = ""

@@ -7,12 +7,27 @@
 		<key>Daily.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
+		</dict>
+		<key>DailyTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>DailyUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>89A679862DA71527002D44DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89A679932DA71529002D44DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

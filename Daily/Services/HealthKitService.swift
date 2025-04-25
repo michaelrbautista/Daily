@@ -8,11 +8,6 @@
 import SwiftUI
 import HealthKit
 
-enum RunQueryDuration {
-    case Month
-    case Year
-}
-
 class HealthKitService {
     
     static let shared = HealthKitService()
@@ -63,7 +58,7 @@ class HealthKitService {
             formatter.dateFormat = "yyyy-MM-dd"
             
             for run in runs {
-                if run.workoutActivityType == .running && run.sourceRevision.source.name == "COROS" {
+                if run.workoutActivityType == .running && run.sourceRevision.source.name != "WHOOP" {
                     if let existingDay = runDictionary[formatter.string(from: run.startDate)] {
                         var newRuns = existingDay
                         newRuns.append(run)
@@ -114,7 +109,7 @@ class HealthKitService {
             formatter.dateFormat = "yyyy-MM-dd"
             
             for run in runs {
-                if run.workoutActivityType == .running && run.sourceRevision.source.name == "COROS" {
+                if run.workoutActivityType == .running && run.sourceRevision.source.name != "WHOOP" {
                     if let existingDay = runDictionary[formatter.string(from: run.startDate)] {
                         var newRuns = existingDay
                         newRuns.append(run)
@@ -130,6 +125,22 @@ class HealthKitService {
         }
 
         healthStore.execute(query)
+    }
+    
+    // MARK: Deduplicate workouts
+    private func deduplicateWorkouts(_ workouts: [HKWorkout]) -> [HKWorkout] {
+        var seen = Set<String>()
+        var unique: [HKWorkout] = []
+        
+        for workout in workouts {
+            let identifier = "\(workout.workoutActivityType.rawValue)-\(workout.startDate.timeIntervalSince1970)-\(workout.endDate.timeIntervalSince1970)"
+            if !seen.contains(identifier) {
+                seen.insert(identifier)
+                unique.append(workout)
+            }
+        }
+        
+        return unique
     }
     
     // MARK: Get today's runs

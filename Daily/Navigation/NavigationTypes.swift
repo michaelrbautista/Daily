@@ -39,6 +39,15 @@ enum Screen: Identifiable, Hashable {
     // Settings
     case SettingsView
     
+    // New
+    case NewProgramView
+    case NewlyCreatedProgramView(viewModel: NewProgramViewModel)
+    case ProgramWeekDetailView(shouldUseSheetNavigation: Bool, week: ProgramWeek)
+    case ProgramRunDetailView(day: String, week: String, run: ProgramRun)
+    
+    // Program
+    case CurrentProgramView(program: Program)
+    
     var id: Self { return self }
 }
 
@@ -69,7 +78,8 @@ enum Sheet: Identifiable, Hashable {
     
     case ShareView
     case SavePhotoView
-    case AppleHealthAccess
+    
+    case NewProgramCoordinatorView
     
     var id: Self { return self }
     

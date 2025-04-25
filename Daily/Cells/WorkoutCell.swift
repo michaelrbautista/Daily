@@ -28,6 +28,13 @@ struct WorkoutCell: View {
             }
             
             Spacer()
+            
+            Image(systemName: "chevron.right")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 12)
+                .foregroundStyle(Color.ColorSystem.systemGray2)
+                .fontWeight(.bold)
         }
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
         .background(Color.ColorSystem.systemGray6)

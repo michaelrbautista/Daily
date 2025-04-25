@@ -1,13 +1,13 @@
 //
-//  AdvancedMarathon.swift
+//  AdvancedHalfMarathon.swift
 //  Daily
 //
-//  Created by Michael Bautista on 4/21/25.
+//  Created by Michael Bautista on 4/22/25.
 //
 
-class AdvancedMarathon {
+class AdvancedHalfMarathon {
     
-    public static let shared = AdvancedMarathon()
+    public static let shared = AdvancedHalfMarathon()
     
     var weeks = [
         // Week 1
@@ -19,7 +19,7 @@ class AdvancedMarathon {
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 11),
+                ProgramRun(type: .LongRun, distance: 8),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -32,7 +32,7 @@ class AdvancedMarathon {
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 12),
+                ProgramRun(type: .LongRun, distance: 9),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -57,8 +57,8 @@ class AdvancedMarathon {
                     ),
                 ]),
                 ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 3),
-                ProgramRun(type: .LongRun, distance: 14),
+                ProgramRun(type: .EasyRun, distance: 5),
+                ProgramRun(type: .LongRun, distance: 10),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -83,8 +83,8 @@ class AdvancedMarathon {
                     ),
                 ]),
                 ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 3),
-                ProgramRun(type: .LongRun, distance: 15),
+                ProgramRun(type: .EasyRun, distance: 5),
+                ProgramRun(type: .LongRun, distance: 8),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -110,7 +110,7 @@ class AdvancedMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 16),
+                ProgramRun(type: .LongRun, distance: 11),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -136,7 +136,7 @@ class AdvancedMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 15),
+                ProgramRun(type: .LongRun, distance: 12),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -144,8 +144,8 @@ class AdvancedMarathon {
         ProgramWeek(
             week: 7,
             runs: [
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .EasyRun, distance: 8),
+                ProgramRun(type: .EasyRun, distance: 7),
+                ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .SpeedWorkout, workoutSegments: [
                     RunSegment(
                         title: "Warmup",
@@ -160,9 +160,9 @@ class AdvancedMarathon {
                         description: "2 miles at an easy pace."
                     ),
                 ]),
-                ProgramRun(type: .EasyRun, distance: 8),
+                ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 18),
+                ProgramRun(type: .LongRun, distance: 10),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -188,7 +188,7 @@ class AdvancedMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 8),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 15),
+                ProgramRun(type: .LongRun, distance: 14),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -214,7 +214,7 @@ class AdvancedMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 8),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 19),
+                ProgramRun(type: .LongRun, distance: 10),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -240,7 +240,7 @@ class AdvancedMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 8),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 15),
+                ProgramRun(type: .LongRun, distance: 14),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
@@ -248,122 +248,18 @@ class AdvancedMarathon {
         ProgramWeek(
             week: 11,
             runs: [
-                ProgramRun(type: .EasyRun, distance: 9),
-                ProgramRun(type: .EasyRun, distance: 9),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Intervals",
-                        description: "10 x 800m seconds at critical velocity pace. 60 seconds rest between each rep."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 9),
                 ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 20),
+                ProgramRun(type: .EasyRun, distance: 5),
+                ProgramRun(type: .EasyRun, distance: 5),
+                ProgramRun(type: .EasyRun, distance: 5),
+                ProgramRun(type: .EasyRun, distance: 5),
+                ProgramRun(type: .LongRun, distance: 8),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
         // Week 12
         ProgramWeek(
             week: 12,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 9),
-                ProgramRun(type: .EasyRun, distance: 9),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Tempo",
-                        description: "9 miles at tempo pace."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 9),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 15),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // Week 13
-        ProgramWeek(
-            week: 13,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 9),
-                ProgramRun(type: .EasyRun, distance: 10),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Intervals",
-                        description: "8 x 1000m seconds at critical velocity pace. 60 seconds rest between each rep."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 10),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 22),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // Week 14
-        ProgramWeek(
-            week: 14,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 7),
-                ProgramRun(type: .EasyRun, distance: 7),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Tempo",
-                        description: "6 miles at tempo pace."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 7),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 14),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // Week 15
-        ProgramWeek(
-            week: 15,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .LongRun, distance: 10),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // Week 16
-        ProgramWeek(
-            week: 16,
             runs: [
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 5),
@@ -381,7 +277,7 @@ class AdvancedMarathon {
                         description: "2 miles at an easy pace."
                     ),
                 ]),
-                ProgramRun(type: .EasyRun, distance: 0),
+                ProgramRun(type: .Rest, distance: 0),
                 ProgramRun(type: .EasyRun, distance: 4),
                 ProgramRun(type: .EasyRun, distance: 2),
                 ProgramRun(type: .Race, distance: 0)

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: Training
 struct TrainingCoordinatorView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
@@ -30,6 +31,7 @@ struct TrainingCoordinatorView: View {
     }
 }
 
+// MARK: Year
 struct YearCoordinatorView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
@@ -53,6 +55,7 @@ struct YearCoordinatorView: View {
     }
 }
 
+// MARK: Settings
 struct SettingsCoordinatorView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
@@ -76,6 +79,34 @@ struct SettingsCoordinatorView: View {
     }
 }
 
+// MARK: New program
+struct NewProgramCoordinatorView: View {
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var navigationController: NavigationController
+    
+    @StateObject var sheetNavigationController = SheetNavigationController()
+    
+    var body: some View {
+        NavigationStack(path: $sheetNavigationController.path) {
+            sheetNavigationController.build(.NewProgramView)
+                .environmentObject(userViewModel)
+                .navigationDestination(for: Screen.self) { screen in
+                    sheetNavigationController.build(screen)
+                }
+                .sheet(item: $sheetNavigationController.sheet) { sheet in
+                    sheetNavigationController.build(sheet)
+                }
+                .fullScreenCover(item: $sheetNavigationController.fullScreenCover) { fullScreenCover in
+                    sheetNavigationController.build(fullScreenCover)
+                }
+        }
+        .environmentObject(navigationController)
+        .environmentObject(sheetNavigationController)
+    }
+}
+
+// MARK: Landing page
 struct LandingPageCoordinatorView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel

@@ -1,16 +1,16 @@
 //
-//  IntermediateMarathon.swift
+//  IntermediateHalfMarathon.swift
 //  Daily
 //
-//  Created by Michael Bautista on 4/21/25.
+//  Created by Michael Bautista on 4/22/25.
 //
 
-class IntermediateMarathon {
+class IntermediateHalfMarathon {
     
-    public static let shared = IntermediateMarathon()
+    public static let shared = IntermediateHalfMarathon()
     
     var weeks = [
-        // MARK: Week 1
+        // Week 1
         ProgramWeek(
             week: 1,
             runs: [
@@ -19,11 +19,11 @@ class IntermediateMarathon {
                 ProgramRun(type: .EasyRun, distance: 4),
                 ProgramRun(type: .EasyRun, distance: 4),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 10),
+                ProgramRun(type: .LongRun, distance: 8),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 2
+        // Week 2
         ProgramWeek(
             week: 2,
             runs: [
@@ -32,11 +32,11 @@ class IntermediateMarathon {
                 ProgramRun(type: .EasyRun, distance: 4),
                 ProgramRun(type: .EasyRun, distance: 4),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 12),
+                ProgramRun(type: .LongRun, distance: 9),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 3
+        // Week 3
         ProgramWeek(
             week: 3,
             runs: [
@@ -45,7 +45,7 @@ class IntermediateMarathon {
                 ProgramRun(type: .SpeedWorkout, workoutSegments: [
                     RunSegment(
                         title: "Warmup",
-                        description: "2 miles at an easy pace."
+                        description: "10-15 minutes at an easy pace."
                     ),
                     RunSegment(
                         title: "Repeats",
@@ -53,16 +53,16 @@ class IntermediateMarathon {
                     ),
                     RunSegment(
                         title: "Cooldown",
-                        description: "2 miles at an easy pace."
+                        description: "10-15 minutes at an easy pace."
                     ),
                 ]),
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 13),
+                ProgramRun(type: .LongRun, distance: 10),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 4
+        // Week 4
         ProgramWeek(
             week: 4,
             runs: [
@@ -71,7 +71,7 @@ class IntermediateMarathon {
                 ProgramRun(type: .SpeedWorkout, workoutSegments: [
                     RunSegment(
                         title: "Warmup",
-                        description: "2 miles at an easy pace."
+                        description: "10-15 minutes at an easy pace."
                     ),
                     RunSegment(
                         title: "Repeats",
@@ -79,16 +79,16 @@ class IntermediateMarathon {
                     ),
                     RunSegment(
                         title: "Cooldown",
-                        description: "2 miles at an easy pace."
+                        description: "10-15 minutes at an easy pace."
                     ),
                 ]),
                 ProgramRun(type: .EasyRun, distance: 5),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 14),
+                ProgramRun(type: .LongRun, distance: 8),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 5
+        // Week 5
         ProgramWeek(
             week: 5,
             runs: [
@@ -110,11 +110,11 @@ class IntermediateMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 6),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 15),
+                ProgramRun(type: .LongRun, distance: 11),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 6
+        // Week 6
         ProgramWeek(
             week: 6,
             runs: [
@@ -136,16 +136,16 @@ class IntermediateMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 6),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 13),
+                ProgramRun(type: .LongRun, distance: 12),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 7
+        // Week 7
         ProgramWeek(
             week: 7,
             runs: [
-                ProgramRun(type: .EasyRun, distance: 7),
-                ProgramRun(type: .EasyRun, distance: 7),
+                ProgramRun(type: .EasyRun, distance: 6),
+                ProgramRun(type: .EasyRun, distance: 6),
                 ProgramRun(type: .SpeedWorkout, workoutSegments: [
                     RunSegment(
                         title: "Warmup",
@@ -160,13 +160,13 @@ class IntermediateMarathon {
                         description: "2 miles at an easy pace."
                     ),
                 ]),
-                ProgramRun(type: .EasyRun, distance: 7),
+                ProgramRun(type: .EasyRun, distance: 6),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 16),
+                ProgramRun(type: .LongRun, distance: 10),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 8
+        // Week 8
         ProgramWeek(
             week: 8,
             runs: [
@@ -188,11 +188,11 @@ class IntermediateMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 13),
+                ProgramRun(type: .LongRun, distance: 14),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 9
+        // Week 9
         ProgramWeek(
             week: 9,
             runs: [
@@ -214,11 +214,11 @@ class IntermediateMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 17),
+                ProgramRun(type: .LongRun, distance: 10),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 10
+        // Week 10
         ProgramWeek(
             week: 10,
             runs: [
@@ -240,148 +240,31 @@ class IntermediateMarathon {
                 ]),
                 ProgramRun(type: .EasyRun, distance: 7),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 13),
+                ProgramRun(type: .LongRun, distance: 14),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 11
+        // Week 11
         ProgramWeek(
             week: 11,
             runs: [
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Intervals",
-                        description: "8 x 800m seconds at critical velocity pace. 60 seconds rest between each rep."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 8),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 18),
+                ProgramRun(type: .EasyRun, distance: 4),
+                ProgramRun(type: .EasyRun, distance: 3),
+                ProgramRun(type: .EasyRun, distance: 3),
+                ProgramRun(type: .EasyRun, distance: 4),
+                ProgramRun(type: .LongRun, distance: 8),
                 ProgramRun(type: .Rest, distance: 0)
             ]
         ),
-        // MARK: Week 12
+        // Week 12
         ProgramWeek(
             week: 12,
             runs: [
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Tempo",
-                        description: "7 miles at tempo pace."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 8),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 13),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // MARK: Week 13
-        ProgramWeek(
-            week: 13,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Intervals",
-                        description: "8 x 1000m seconds at critical velocity pace. 60 seconds rest between each rep."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 8),
                 ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 20),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // MARK: Week 14
-        ProgramWeek(
-            week: 14,
-            runs: [
                 ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Tempo",
-                        description: "7 miles at tempo pace."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 6),
-                ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .LongRun, distance: 12),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // MARK: Week 15
-        ProgramWeek(
-            week: 15,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .EasyRun, distance: 4),
-                ProgramRun(type: .EasyRun, distance: 8),
-                ProgramRun(type: .Rest, distance: 0)
-            ]
-        ),
-        // MARK: Week 16
-        ProgramWeek(
-            week: 16,
-            runs: [
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .EasyRun, distance: 5),
-                ProgramRun(type: .SpeedWorkout, workoutSegments: [
-                    RunSegment(
-                        title: "Warmup",
-                        description: "2 miles at an easy pace."
-                    ),
-                    RunSegment(
-                        title: "Intervals",
-                        description: "8 x 800m seconds at critical velocity pace. 60 seconds rest between each rep."
-                    ),
-                    RunSegment(
-                        title: "Cooldown",
-                        description: "2 miles at an easy pace."
-                    ),
-                ]),
-                ProgramRun(type: .EasyRun, distance: 0),
+                ProgramRun(type: .Rest, distance: 0),
                 ProgramRun(type: .EasyRun, distance: 3),
                 ProgramRun(type: .EasyRun, distance: 2),
                 ProgramRun(type: .Race, distance: 0)

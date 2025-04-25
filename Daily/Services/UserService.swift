@@ -51,7 +51,8 @@ class UserService {
                         email,
                         username,
                         full_name,
-                        age
+                        age,
+                        gender
                     """
                 )
                 .eq("id", value: uid)
@@ -79,7 +80,8 @@ class UserService {
                         email,
                         username,
                         full_name,
-                        age
+                        age,
+                        gender
                     """
                 )
                 .single()

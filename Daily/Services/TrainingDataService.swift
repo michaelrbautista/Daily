@@ -27,16 +27,22 @@ class TrainingDataService {
     public static let shared = TrainingDataService()
     
     // MARK: Calculate intensity
-    func calculateIntensity(durationMinutes: Double, hrAvg: Double, hrRest: Double, hrMax: Double, isMale: Bool) -> Int {
+    func calculateIntensity(
+        durationMinutes: Double,
+        hrAvg: Double,
+        hrRest: Double,
+        hrMax: Double,
+        isMale: Bool
+    ) -> Int {
         let hrRelative = (hrAvg - hrRest) / (hrMax - hrRest)
         let b = isMale ? 1.92 : 1.67
         let trimp = durationMinutes * hrRelative * pow(M_E, b * hrRelative)
         
-        if trimp < 101 {
+        if trimp < 100 {
             return 1
-        } else if trimp < 201 {
+        } else if trimp < 200 {
             return 2
-        } else if trimp < 301 {
+        } else if trimp < 300 {
             return 3
         } else {
             return 4

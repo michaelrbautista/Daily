@@ -26,12 +26,12 @@ struct GoalView: View {
                     viewModel.goal = "Base training"
                 }
                 
-                SelectListRow(
-                    text: "10k",
-                    selection: $viewModel.goal
-                ) {
-                    viewModel.goal = "10k"
-                }
+//                SelectListRow(
+//                    text: "10k",
+//                    selection: $viewModel.goal
+//                ) {
+//                    viewModel.goal = "10k"
+//                }
                 
                 SelectListRow(
                     text: "Half marathon",

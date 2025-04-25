@@ -16,11 +16,45 @@ struct GraphDay: Identifiable {
 }
 
 struct Run: Hashable {
+    var runWorkout: HKWorkout
     var distance: Double
     var duration: String
 }
 
-struct ProgramRun {
+struct Program {
+    var type: ProgramType
+    var weeks: [ProgramWeek]
+}
+
+enum ProgramType {
+    case TenK
+    case HalfMarathon
+    case Marathon
+    case BaseTraining
+    
+    var asString: String {
+        switch self {
+        case .TenK:
+            return "10k"
+        case .HalfMarathon:
+            return "Half Marathon"
+        case .Marathon:
+            return "Marathon"
+        case .BaseTraining:
+            return "Base Training"
+        }
+    }
+}
+
+struct ProgramWeek {
+    var id = UUID()
+    var week: Int
+    var runs: [ProgramRun]
+}
+
+struct ProgramRun: Hashable {
+    var type: RunType
+    
     // Easy/long run
     var distance: Int?
     
@@ -28,12 +62,15 @@ struct ProgramRun {
     var workoutSegments: [RunSegment]?
 }
 
-struct RunSegment {
-    var title: String
-    var description: String
+enum RunType {
+    case EasyRun
+    case SpeedWorkout
+    case LongRun
+    case Rest
+    case Race
 }
 
-struct Program: Identifiable {
-    var id = UUID()
-    var weeks: [[ProgramRun]]
+struct RunSegment: Hashable {
+    var title: String
+    var description: String
 }

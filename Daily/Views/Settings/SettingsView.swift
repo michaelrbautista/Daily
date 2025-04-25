@@ -21,42 +21,40 @@ struct SettingsView: View {
         List {
             // MARK: Training programs
             Section {
-                if !userViewModel.isSubscribed {
-                    CoordinatorLink {
-                        Text("View current program")
-                            .font(Font.FontStyles.body)
-                            .foregroundStyle(Color.ColorSystem.systemGray)
-                    } action: {
-                        
-                    }
-                    .disabled(true)
-                    
-                    CoordinatorLink {
-                        Text("New program")
-                            .font(Font.FontStyles.body)
-                            .foregroundStyle(Color.ColorSystem.systemGray)
-                    } action: {
-                        
-                    }
-                    .disabled(true)
-                } else {
-                    CoordinatorLink {
-                        Text("Training programs")
-                            .font(Font.FontStyles.body)
-                            .foregroundStyle(Color.ColorSystem.systemGray)
-                    } action: {
-                        
-                    }
-                    
-                    CoordinatorLink {
-                        Text("New program")
-                            .font(Font.FontStyles.body)
-                            .foregroundStyle(Color.ColorSystem.systemGray)
-                    } action: {
-                        
-                    }
-                    .disabled(true)
+                CoordinatorLink {
+                    Text(
+                        userViewModel.program != nil &&
+                        userViewModel.startDate != nil ?
+                        "View current program" : "You haven't started a program yet")
+                        .font(Font.FontStyles.body)
+                        .foregroundStyle(
+                            userViewModel.program != nil &&
+                            userViewModel.startDate != nil &&
+                            userViewModel.isSubscribed ?
+                            Color.ColorSystem.primaryText : Color.ColorSystem.systemGray
+                        )
+                } action: {
+                    navigationController.push(.CurrentProgramView(program: userViewModel.program!))
                 }
+                .disabled(
+                    userViewModel.program == nil ||
+                    userViewModel.startDate == nil ||
+                    !userViewModel.isSubscribed
+                )
+                
+                CoordinatorLink {
+                    Text("New program")
+                        .font(Font.FontStyles.body)
+                        .foregroundStyle(
+                            !userViewModel.isSubscribed ?
+                            Color.ColorSystem.systemGray : Color.ColorSystem.primaryText
+                        )
+                } action: {
+                    navigationController.presentSheet(.NewProgramCoordinatorView)
+                }
+                .disabled(
+                    !userViewModel.isSubscribed
+                )
             }
             
             // MARK: Upgrade to pro

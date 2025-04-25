@@ -13,11 +13,18 @@ final class TrainingViewModel: ObservableObject {
     @Published var days = [GraphDay]()
     @Published var weeks: [[GraphDay]]?
     
-    @Published var todaysRuns = [Run]()
+    @Published var todaysScheduledRuns = [ProgramRun]()
+    @Published var todaysCompletedRuns = [Run]()
     @Published var hasAccessToHealth = false
+    
+    @Published var programWeek = ""
+    @Published var programDay = ""
+    @Published var hasStarted = false
     
     var currentMonth: String
     var runCount: Int
+    
+    var weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
     init() {
         let currentDate = Date()
@@ -29,6 +36,61 @@ final class TrainingViewModel: ObservableObject {
         self.runCount = calendar.component(.day, from: currentDate)
         
         generateInitialGraph()
+        
+        getTrainingProgramWorkouts()
+    }
+    
+    // MARK: Get training program workouts
+    func getTrainingProgramWorkouts() {
+        DispatchQueue.main.async {
+            self.todaysScheduledRuns = []
+        }
+        
+        if let experience = UserDefaults.standard.value(forKey: "experience") as? String, let goal = UserDefaults.standard.value(forKey: "goal") as? String, let startDate = UserDefaults.standard.value(forKey: "startDate") as? Date {
+            var weeks = [ProgramWeek]()
+            
+            if goal == "Base training" {
+                if experience == "Beginner" {
+                    weeks = BeginnerBaseTraining.shared.weeks
+                } else if experience == "Intermediate" {
+                    weeks = IntermediateBaseTraining.shared.weeks
+                } else {
+                    weeks = AdvancedBaseTraining.shared.weeks
+                }
+            } else if goal == "Half marathon" {
+                if experience == "Beginner" {
+                    weeks = BeginnerHalfMarathon.shared.weeks
+                } else if experience == "Intermediate" {
+                    weeks = IntermediateHalfMarathon.shared.weeks
+                } else {
+                    weeks = AdvancedHalfMarathon.shared.weeks
+                }
+            } else if goal == "Marathon" {
+                if experience == "Beginner" {
+                    weeks = BeginnerMarathon.shared.weeks
+                } else if experience == "Intermediate" {
+                    weeks = IntermediateMarathon.shared.weeks
+                } else {
+                    weeks = AdvancedMarathon.shared.weeks
+                }
+            }
+            
+            let calendar = Calendar(identifier: .gregorian)
+            let daysSinceStarted = calendar.numberOfDaysBetween(startDate, and: Date.now)
+            
+            if daysSinceStarted > 0 {
+                self.hasStarted = true
+                
+                let week = (daysSinceStarted / 7) + 1
+                let day = (daysSinceStarted % 7)
+                
+                DispatchQueue.main.async {
+                    self.programWeek = String(week)
+                    self.programDay = self.weekDays[day]
+                    self.todaysScheduledRuns.append(weeks[week].runs[day])
+                }
+            }
+        }
     }
     
     // MARK: Get this month's workouts
@@ -37,6 +99,10 @@ final class TrainingViewModel: ObservableObject {
         maxHeartRate: Double,
         gender: String
     ) {
+        DispatchQueue.main.async {
+            self.todaysCompletedRuns = []
+        }
+        
         // Get this month's workouts
         // runs: Dictionary<String, HKWorkout>
         HealthKitService.shared.getCurrentMonthsWorkouts { runs in
@@ -141,7 +207,7 @@ final class TrainingViewModel: ObservableObject {
                     
                     // Add to today's runs
                     DispatchQueue.main.async {
-                        self.todaysRuns.append(Run(distance: distance, duration: duration))
+                        self.todaysCompletedRuns.append(Run(runWorkout: todaysRuns[run], distance: distance, duration: duration))
                     }
                 }
             }
